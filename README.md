@@ -17,7 +17,7 @@ Plugin for [Oh My Fish][omf-link].
 ## Install
 
 ```fish
-$ omf install ssh_agent
+$ omf install https://github.com/zimski/ssh_agent
 ```
 
 
@@ -29,7 +29,7 @@ no commands .... for now.
 
 # License
 
-[MIT][mit] © [{{USER}}][author] et [al][contributors]
+[MIT][mit] © [Chadda chakib][author] et [al][contributors]
 
 
 [mit]:            http://opensource.org/licenses/MIT
