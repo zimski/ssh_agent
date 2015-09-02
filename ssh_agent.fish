@@ -7,10 +7,6 @@
 
 setenv SSH_ENV $HOME/.ssh/environment
 
-function init -a path --on-event init_ssh_agent
-  test_identities
-end
-
 function uninstall --on-event uninstall_ssh_agent
 
 end
