@@ -1,17 +1,6 @@
-# SYNOPSIS
-#   ssh_agent [options]
-#
-# USAGE
-#   Options
-#
-
 setenv SSH_ENV $HOME/.ssh/environment
 
-function uninstall --on-event uninstall_ssh_agent
-
-end
-
-function start_agent
+function __start_agent
   if [ -n "$SSH_AGENT_PID" ]
         ps -ef | grep $SSH_AGENT_PID | grep ssh-agent > /dev/null
         if [ $status -eq 0 ]
@@ -36,25 +25,13 @@ function start_agent
 end
 
 
-function test_identities                                                                                                                                                                
+function start_ssh_agent                                                                                                                                                                
     ssh-add -l | grep "The agent has no identities" > /dev/null
     if [ $status -eq 0 ]
         ssh-add
         if [ $status -eq 2 ]
-            start_agent
+            __start_agent
         end
     end
 end
 
-
-function fish_title
-    if [ $_ = 'fish' ]
-  echo (prompt_pwd)
-    else
-        echo $_
-    end
-end
-
-function init --on-event init_ssh_agent
-  test_identities
-end
